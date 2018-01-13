@@ -10,7 +10,7 @@ import LogoutButtonContainer from './user/ui/logoutbutton/LogoutButtonContainer'
 // Styles
 import './css/oswald.css'
 import './css/open-sans.css'
-import './css/pure-min.css'
+import './css/pure.css'
 import './App.css'
 
 class App extends Component {
@@ -19,6 +19,9 @@ class App extends Component {
       <span>
         <li className="pure-menu-item">
           <Link to="/dashboard" className="pure-menu-link">Dashboard</Link>
+        </li>
+        <li className="pure-menu-item">
+          <Link to="/lobbypay" className="pure-menu-link">LobbyPay</Link>
         </li>
         <li className="pure-menu-item">
           <Link to="/profile" className="pure-menu-link">Profile</Link>
