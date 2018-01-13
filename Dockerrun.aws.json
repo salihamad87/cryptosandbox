@@ -1,0 +1,15 @@
+{
+    "AWSEBDockerrunVersion": "1",
+    "Image": {
+      "Name": "salihamad/cs-prod",
+      "Update": "true"
+    },
+    "Ports": [
+      {
+        "hostPort": "80",
+        "ContainerPort": "80"
+      }
+    ],
+    "Logging": "/var/log/nginx"
+  }
+  
