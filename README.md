@@ -1,5 +1,5 @@
 # Cryptosandbox
-Sandbox environment to help user get comfortable with sending and recieving coins and using cryptocurrency exchanges. 
+Sandbox environment to help users get comfortable with sending and recieving coins and using cryptocurrency exchanges. 
 
 ## Setup
 1. Install Metamask in your Chrome/Firefox browser
