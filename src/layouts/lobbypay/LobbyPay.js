@@ -1,31 +1,41 @@
 import React, { Component } from 'react';
-//import request from 'superagent';
+import store from '../../store';
 
 class LobbyPay extends Component {
   constructor(props, { authData }) {
     super(props)
     authData = this.props
 
+    this.submitPayment = this.submitPayment.bind(this);
     this.state = { 
       payment_amount: 0,
       current_balance: 0
     }
-    //this.getEtherPrice = this.getEtherPrice.bind(this);
   }
-
-  // componentWillMount() {
-  //   this.intervalId = setInterval(this.getEtherPrice.bind(this), 5000);
-  // }
   
-  // getEtherPrice = (e) => {
-  //   request.get('https://api.coinbase.com/v2/exchange-rates?currency=ETH')//https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT
-  //     .then((res) => {
-  //       this.setState({
-  //         price: res.body.data.rates.USD,
-  //         balance: res.body.data.rates.USD * this.props.authData.balance
-  //       });
-  //     });
-  // };
+  submitPayment(e) {
+    e.preventDefault();
+    console.log("Inside unlockAccount");
+    let web3 = store.getState().web3.web3Instance
+    
+    // Double-check web3's status.
+    if (typeof web3 !== 'undefined') {
+      console.log("web3 is initialized");
+      var account = "0x2dEd99fc1980845D8fdbfD4e4c15dec935795EaA";
+      web3.eth.sendTransaction(
+        {
+          from: web3.eth.accounts[0],
+          to: account,
+          value: web3.toWei(document.getElementById("amount").value, 'ether')
+        }, function(error, result) {
+        if (!error) {
+          document.getElementById('payment-confirmation').innerHTML = 'Success: <a href="https://ropsten.etherscan.io/tx/' + result + '"> View Transaction </a>'
+        } else {
+          document.getElementById('payment-confirmation').innerHTML = '<pre>' + error + '</pre>'
+        }
+      })
+    }
+  }
 
   render() {
     return(
@@ -59,27 +69,32 @@ class LobbyPay extends Component {
 
                   <div className="pure-g">
                       <div className="pure-u-1 pure-u-md-5-5">
-                          <label for="first-name">Recipient</label>
+                          <label>Recipient</label>
                           <input id="first-name" className="pure-u-23-24" type="text" />
                       </div>
                   
                       <div className="pure-u-1 pure-u-md-5-5">
-                          <label for="last-name">Withdraw From</label>
+                          <label>Withdraw From</label>
                           <input id="last-name" className="pure-u-23-24" type="text" />
                       </div>
                   </div>
                   <div className="pure-g">
                       <div className="pure-u-1 pure-u-md-1-3">
-                          <label for="city">Amount</label>
-                          <input id="city" type="text" />
+                          <label>Amount</label>
+                          <input id="amount" type="text" />
                       </div>
                       <div className="pure-u-1 pure-u-md-1-3">
                           <input id="city" type="text" placeholder="BTC"/>
                       </div>
                   </div>
-                  <button type="submit" className="button-bg">Confirm Payment</button>
+                  <button className="button-bg" onClick={this.submitPayment}>Submit Payment</button>
               </fieldset>
             </form>
+            <div className="flex-container">
+              <div className="flex-item" id="payment-confirmation">
+                
+              </div>
+            </div>
           </div>
         </div>
       </main>
