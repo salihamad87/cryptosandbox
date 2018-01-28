@@ -71,6 +71,10 @@ code {
   margin-top: 50px;
 }
 
+.contact-pay-container {
+  margin-top: 50px;
+}
+
 .flex-container {
   margin-top:40px;
   margin-bottom: 50px;
@@ -120,7 +124,6 @@ code {
 } */
 
 .customer-email-phone {
-  width: 134px;
 	height: 24px;
 	font-size: 18px;
 	font-weight: bold;
@@ -180,3 +183,47 @@ hr.style-six {
   text-align: center;
   color: #fff;
 }
+
+p span {
+  display: block;
+}
+
+.text-gray {
+  font-size: 15px;
+  line-height: 1.33;
+  text-align: left;
+  color: #9b9b9b;
+}
+
+.text-balance-header {
+  font-size: 15px;
+	line-height: 1.33;
+	text-align: left;
+	color: #00d4b6;
+}
+
+.text-balance-value {
+	line-height: 1.33;
+	text-align: left;
+  color: #00d4b6;
+  font-weight: bold;
+}
+
+.text-balance-eth-header {
+  font-size: 15px;
+	line-height: 1.33;
+	text-align: left;
+	color: #00d4b6;
+}
+
+.text-balance-eth-value {
+	line-height: 1.33;
+	text-align: left;
+  color: #00d4b6;
+  font-weight: bold;
+}
+
+.lobby-pay-submit-payment {
+  margin-top: 25px;
+}
+

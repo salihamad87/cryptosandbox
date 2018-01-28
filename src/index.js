@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import { Provider } from 'react-redux'
-import { syncHistoryWithStore } from 'react-router-redux'
-import { UserIsAuthenticated, UserIsNotAuthenticated } from './util/wrappers.js'
-import getWeb3 from './util/web3/getWeb3'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
+import { UserIsAuthenticated, UserIsNotAuthenticated } from './util/wrappers.js';
+import getWeb3 from './util/web3/getWeb3';
+import 'bootstrap/dist/css/bootstrap.css';
 
 // Layouts
 import App from './App'

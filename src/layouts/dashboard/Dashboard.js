@@ -11,6 +11,8 @@ class Dashboard extends Component {
       balance: 0
     }
     this.getEtherPrice = this.getEtherPrice.bind(this);
+
+    this.getEtherPrice();
   }
 
   componentWillMount() {
